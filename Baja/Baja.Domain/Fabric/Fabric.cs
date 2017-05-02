@@ -16,9 +16,11 @@ namespace Baja.Domain.Fabric
         public string ImageUrl { get; set; }
 
 
+        [Display(Name = "Fabric Category")]
         public int FabricBookId { get; set; }
         public FabricBook FabricBooks { get; set; }
 
+        [Display(Name = "Fabric Restriction")]
         public int FabricRestrictionId { get; set; }
         public FabricRestriction FabricRestrictions { get; set; }
     }

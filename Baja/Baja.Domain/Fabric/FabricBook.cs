@@ -14,7 +14,7 @@ namespace Baja.Domain.Fabric
         [Display(Name = "Book")]
         public string Name { get; set; }
 
-
+        [Display(Name = "Fabric Category")]
         public int FabricCategoryId { get; set; }
         public FabricCategory FabricCategories { get; set; }
     }

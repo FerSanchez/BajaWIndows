@@ -12,14 +12,15 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.FabricBooks.Name)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.FabricRestrictions.Name)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.ImageUrl)
         </th>
@@ -46,11 +47,10 @@
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>
-
-
-    @Html.ActionLink("Fabric Books","Index","FabricBooks")
-    @Html.ActionLink("Fabric Categories","Index","FabricCategories")
-    @Html.ActionLink("Fabric Restrictions","Index","FabricRestrictions")
 }
 
 </table>
+
+@Html.ActionLink("Fabric Books", "Index", "FabricBooks") <br />
+@Html.ActionLink("Fabric Categories", "Index", "FabricCategories") <br />
+@Html.ActionLink("Fabric Restrictions", "Index", "FabricRestrictions")
