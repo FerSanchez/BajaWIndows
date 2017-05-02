@@ -58,6 +58,10 @@
     <Compile Include="Migrations\201705021636015_PhaseFabric.Designer.cs">
       <DependentUpon>201705021636015_PhaseFabric.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705021703276_MountRomanShade.cs" />
+    <Compile Include="Migrations\201705021703276_MountRomanShade.Designer.cs">
+      <DependentUpon>201705021703276_MountRomanShade.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RomanShade\Mount.cs" />
@@ -69,6 +73,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201705021636015_PhaseFabric.resx">
       <DependentUpon>201705021636015_PhaseFabric.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705021703276_MountRomanShade.resx">
+      <DependentUpon>201705021703276_MountRomanShade.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
