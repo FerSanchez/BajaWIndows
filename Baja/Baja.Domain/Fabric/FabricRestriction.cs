@@ -11,6 +11,8 @@ namespace Baja.Domain.Fabric
     {
         [Key]
         public int Id { get; set; }
+
+        [Display(Name = "Restriction")]
         public string Name { get; set; }
     }
 }
