@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Baja.Web", "Baja.Web\Baja.Web.csproj", "{B437D27F-8060-469E-800D-6D2828957C86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BajaWS.Domain", "BajaWS.Domain\BajaWS.Domain.csproj", "{3153637A-08DE-43C9-816C-B9D8C1FE51B1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{B437D27F-8060-469E-800D-6D2828957C86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B437D27F-8060-469E-800D-6D2828957C86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B437D27F-8060-469E-800D-6D2828957C86}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3153637A-08DE-43C9-816C-B9D8C1FE51B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3153637A-08DE-43C9-816C-B9D8C1FE51B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3153637A-08DE-43C9-816C-B9D8C1FE51B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3153637A-08DE-43C9-816C-B9D8C1FE51B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
