@@ -12,15 +12,11 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.FabricBooks.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FabricRestrictions.Name)
+            @Html.DisplayNameFor(model => model.Name)
         </th>
-        
         <th>
             @Html.DisplayNameFor(model => model.ImageUrl)
         </th>
@@ -31,9 +27,6 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.FabricBooks.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FabricRestrictions.Name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
@@ -50,7 +43,3 @@
 }
 
 </table>
-
-@Html.ActionLink("Fabric Books", "Index", "FabricBooks") <br />
-@Html.ActionLink("Fabric Categories", "Index", "FabricCategories") <br />
-@Html.ActionLink("Fabric Restrictions", "Index", "FabricRestrictions")

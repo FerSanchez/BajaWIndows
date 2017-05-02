@@ -18,7 +18,7 @@ namespace Baja.Web.Controllers
         // GET: Fabrics
         public ActionResult Index()
         {
-            var frabrics = db.Frabrics.Include(f => f.FabricBooks).Include(f => f.FabricRestrictions);
+            var frabrics = db.Frabrics.Include(f => f.FabricBooks);
             return View(frabrics.ToList());
         }
 
@@ -41,7 +41,6 @@ namespace Baja.Web.Controllers
         public ActionResult Create()
         {
             ViewBag.FabricBookId = new SelectList(db.FabricBooks, "Id", "Name");
-            ViewBag.FabricRestrictionId = new SelectList(db.FabricRestrictions, "Id", "Name");
             return View();
         }
 
@@ -50,7 +49,7 @@ namespace Baja.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,ImageUrl,FabricBookId,FabricRestrictionId")] Fabric fabric)
+        public ActionResult Create([Bind(Include = "Id,Name,ImageUrl,FabricBookId")] Fabric fabric)
         {
             if (ModelState.IsValid)
             {
@@ -60,7 +59,6 @@ namespace Baja.Web.Controllers
             }
 
             ViewBag.FabricBookId = new SelectList(db.FabricBooks, "Id", "Name", fabric.FabricBookId);
-            ViewBag.FabricRestrictionId = new SelectList(db.FabricRestrictions, "Id", "Name", fabric.FabricRestrictionId);
             return View(fabric);
         }
 
@@ -77,7 +75,6 @@ namespace Baja.Web.Controllers
                 return HttpNotFound();
             }
             ViewBag.FabricBookId = new SelectList(db.FabricBooks, "Id", "Name", fabric.FabricBookId);
-            ViewBag.FabricRestrictionId = new SelectList(db.FabricRestrictions, "Id", "Name", fabric.FabricRestrictionId);
             return View(fabric);
         }
 
@@ -86,7 +83,7 @@ namespace Baja.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,ImageUrl,FabricBookId,FabricRestrictionId")] Fabric fabric)
+        public ActionResult Edit([Bind(Include = "Id,Name,ImageUrl,FabricBookId")] Fabric fabric)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +92,6 @@ namespace Baja.Web.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.FabricBookId = new SelectList(db.FabricBooks, "Id", "Name", fabric.FabricBookId);
-            ViewBag.FabricRestrictionId = new SelectList(db.FabricRestrictions, "Id", "Name", fabric.FabricRestrictionId);
             return View(fabric);
         }
 

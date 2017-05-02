@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,12 +17,17 @@ namespace Baja.Domain.Fabric
         public string ImageUrl { get; set; }
 
 
-        [Display(Name = "Fabric Category")]
+        [Display(Name = "Fabric Book")]
         public int FabricBookId { get; set; }
         public FabricBook FabricBooks { get; set; }
 
-        [Display(Name = "Fabric Restriction")]
-        public int FabricRestrictionId { get; set; }
-        public FabricRestriction FabricRestrictions { get; set; }
+
+
+
+        //Puede ser List o IEnumerable\\
+        [Required]
+        [Display(Name = "Fabric Restrictions")]
+        public virtual ICollection<FabricRestriction> FabricRestrictions { get; set; }
+        
     }
 }
