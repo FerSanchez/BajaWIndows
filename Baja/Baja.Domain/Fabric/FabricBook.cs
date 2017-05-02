@@ -11,9 +11,10 @@ namespace Baja.Domain.Fabric
     {
         [Key]
         public int Id { get; set; }
+        [Display(Name = "Book")]
         public string Name { get; set; }
 
-
+        [Display(Name = "Fabric Category")]
         public int FabricCategoryId { get; set; }
         public FabricCategory FabricCategories { get; set; }
     }

@@ -11,6 +11,14 @@ namespace Baja.Domain.Fabric
     {
         [Key]
         public int Id { get; set; }
+
+        [Display(Name = "Restriction")]
         public string Name { get; set; }
+
+
+        //Puede ser List o IEnumerable\\
+        [Required]
+        [Display(Name = "Fabric")]
+        public virtual ICollection<Fabric> Fabrics { get; set; }
     }
 }
