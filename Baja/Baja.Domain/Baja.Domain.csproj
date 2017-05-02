@@ -50,11 +50,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BajaDbContext.cs" />
+    <Compile Include="Fabric\Fabric.cs" />
+    <Compile Include="Fabric\FabricBook.cs" />
+    <Compile Include="Fabric\FabricCategory.cs" />
+    <Compile Include="Fabric\FabricRestriction.cs" />
+    <Compile Include="Migrations\201705021636015_PhaseFabric.cs" />
+    <Compile Include="Migrations\201705021636015_PhaseFabric.Designer.cs">
+      <DependentUpon>201705021636015_PhaseFabric.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201705021636015_PhaseFabric.resx">
+      <DependentUpon>201705021636015_PhaseFabric.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
