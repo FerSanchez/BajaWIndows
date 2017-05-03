@@ -1,4 +1,4 @@
-﻿@model Baja.Domain.Fabric.Fabric
+﻿@model Baja.Domain.Fabric.FabricViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -34,9 +34,26 @@
             @Html.DisplayFor(model => model.ImageUrl)
         </dd>
 
+        @*Test*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Restrictions)
+        </dt>
+
+        <dd>
+            @foreach (var item in Model.Restrictions)
+            {
+                if (item.Checked)
+                {
+                    <div>@item.Name</div>
+                }
+            }
+        </dd>
+
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FabricId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
