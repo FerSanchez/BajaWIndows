@@ -16,10 +16,9 @@ namespace Baja.Domain.Fabric
         public string Name { get; set; }
 
 
+        ///////////////////////////////////////
+        public virtual ICollection<Fabric_Restriction> Fabric_Restrictions { get; set; }
 
-        /// ////////////////////////////////////
-
-        public virtual ICollection<FabricOnRestriction> FabricOnRestrictions { get; set; }
-
+        //////////////////////////////////////
     }
 }

@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Baja.Domain.Fabric
 {
-    public class FabricOnRestriction
+    public class Fabric_Restriction
     {
         public int Id { get; set; }
 
         //FK
         public int FabricId { get; set; }
-        public Fabric Fabrics { get; set; }
+        public virtual Fabric Fabric { get; set; }
 
         //FK
         public int FabricRestrictionId { get; set; }
-        public FabricRestriction FabricRestrictions { get; set; }
+        public virtual FabricRestriction FabricRestriction { get; set; }
     }
 }

@@ -24,16 +24,11 @@ namespace Baja.Domain.Fabric
 
         /// ///////////////////////////////////////////////
 
-        public virtual ICollection<FabricOnRestriction> FabricOnRestrictions { get; set; }
+        public virtual ICollection<Fabric_Restriction> Fabric_Restrictions { get; set; }
 
         //////////////////////////////////////////////////
 
-        //Intento\\      
-        public FabricRestriction FabricRestriction { get; set; }
 
-        public ICollection<int>[] SelectedRestrictionList { get; set; }
-        //Puede ser List o IEnumerable\\
-        
 
        
         

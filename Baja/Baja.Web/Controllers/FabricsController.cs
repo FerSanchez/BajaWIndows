@@ -59,18 +59,6 @@ namespace Baja.Web.Controllers
             {
                 db.Frabrics.Add(fabric);
                 db.SaveChanges();
-                foreach (var itemId in fabric.SelectedRestrictionList)
-                {
-                    var obj = new FabricOnRestriction()
-                    {
-
-                       FabricId = fabric.Id,
-                       FabricRestrictionId = Convert.ToInt32(itemId)
-
-                    };
-                    db.FabricOnRestrictions.Add(obj);
-                }
-
                 return RedirectToAction("Index");
             }
 
@@ -90,8 +78,39 @@ namespace Baja.Web.Controllers
             {
                 return HttpNotFound();
             }
+
+            //
+            var Results = from b in db.FabricRestrictions
+                          select new
+                          {
+                              b.Id,
+                              b.Name,
+                              Checked = ((from ab in db.Fabric_Restrictions
+                                          where (ab.FabricId == id) && (ab.FabricRestrictionId == b.Id)
+                                          select ab).Count() > 0)
+                          };
+
+            var MyViewModel = new FabricViewModel();
+            MyViewModel.FabricId = id.Value;
+            MyViewModel.Name = fabric.Name;
+            MyViewModel.ImageUrl = fabric.ImageUrl;
+            MyViewModel.FabricBookId = fabric.FabricBookId;
+            
+
+            var MyCheckBoxList = new List<CheckBoxViewModel>();
+            foreach (var item in Results)
+            {
+                MyCheckBoxList.Add(new CheckBoxViewModel { Id = item.Id, Name = item.Name, Checked = item.Checked });
+
+            }
+
+            MyViewModel.Restrictions = MyCheckBoxList;
+
+            //
+
             ViewBag.FabricBookId = new SelectList(db.FabricBooks, "Id", "Name", fabric.FabricBookId);
-            return View(fabric);
+
+            return View(MyViewModel);
         }
 
         // POST: Fabrics/Edit/5
@@ -99,10 +118,33 @@ namespace Baja.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,ImageUrl,FabricBookId")] Fabric fabric)
+        public ActionResult Edit(FabricViewModel fabric )
         {
             if (ModelState.IsValid)
             {
+                var myFabric = db.Frabrics.Find(fabric.FabricId);
+
+                myFabric.Name = fabric.Name;
+                myFabric.ImageUrl = fabric.ImageUrl;
+                myFabric.FabricBookId = fabric.FabricBookId;
+
+                foreach (var item in db.Fabric_Restrictions)
+                {
+                    if (item.FabricId == fabric.FabricId)
+                    {
+                        db.Entry.(item).State == System.Data.Entity.EntityState.Deleted;
+                    }
+                }
+
+                foreach (var item in fabric.Restrictions)
+                {
+                    if (item.Checked)
+                    {
+                        db.Fabric_Restrictions.Add(new Fabric_Restriction() )
+                    }
+                }
+
+              
                 db.Entry(fabric).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -110,6 +152,10 @@ namespace Baja.Web.Controllers
             ViewBag.FabricBookId = new SelectList(db.FabricBooks, "Id", "Name", fabric.FabricBookId);
             return View(fabric);
         }
+
+
+
+
 
         // GET: Fabrics/Delete/5
         public ActionResult Delete(int? id)
