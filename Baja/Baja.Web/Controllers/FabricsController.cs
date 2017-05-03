@@ -54,6 +54,23 @@ namespace Baja.Web.Controllers
             MyViewModel.FabricBookId = fabric.FabricBookId;
 
 
+            FabricBook fb = db.FabricBooks.Find(MyViewModel.FabricBookId);
+            if (fb == null)
+            {
+
+               return HttpNotFound();
+           
+            }
+            else {
+
+                MyViewModel.FabricBooks = new FabricBook()
+                {
+                    Id = fb.Id,
+                    Name = fb.Name
+                };
+
+            }
+
             var MyCheckBoxList = new List<CheckBoxViewModel>();
             foreach (var item in Results)
             {
