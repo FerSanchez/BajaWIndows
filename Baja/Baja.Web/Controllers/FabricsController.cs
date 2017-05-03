@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Baja.Domain;
 using Baja.Domain.Fabric;
+using System.IO;
 
 namespace Baja.Web.Controllers
 {
@@ -84,8 +85,23 @@ namespace Baja.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,ImageUrl,FabricBookId")] Fabric fabric)
+        public ActionResult Create([Bind(Include = "Id,Name,ImageUrl,FabricBookId")] Fabric fabric, HttpPostedFileBase img)
         {
+
+            //Agregar Imagen\\
+            if (img != null)
+            {
+                var folder = Server.MapPath("~/Content/Fabrics/");
+                var imageUrl = Path.GetFileName(img.FileName);
+                var filename = Path.Combine(folder, imageUrl);
+                img.SaveAs(filename);
+                fabric.ImageUrl = imageUrl;
+            }
+            else
+            {
+                fabric.ImageUrl = "null";
+            }
+
 
             if (ModelState.IsValid)
             {

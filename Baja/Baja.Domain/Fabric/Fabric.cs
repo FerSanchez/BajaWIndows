@@ -22,15 +22,7 @@ namespace Baja.Domain.Fabric
         public FabricBook FabricBooks { get; set; }
 
 
-        /// ///////////////////////////////////////////////
-
         public virtual ICollection<Fabric_Restriction> Fabric_Restrictions { get; set; }
-
-        //////////////////////////////////////////////////
-
-
-
-       
         
     }
 }

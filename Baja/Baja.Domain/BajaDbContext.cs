@@ -17,5 +17,9 @@ namespace Baja.Domain
         public DbSet<FabricCategory> FabricCategories { get; set; }
         public DbSet<FabricRestriction> FabricRestrictions { get; set; }
         public DbSet<Fabric_Restriction> Fabric_Restrictions { get; set; }
+
+
+
+
     }
 }

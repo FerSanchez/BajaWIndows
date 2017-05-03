@@ -17,7 +17,6 @@ namespace Baja.Domain.Fabric
         public FabricBook FabricBooks { get; set; }
 
 
-
         public List<CheckBoxViewModel> Restrictions { get; set; }
 
     }

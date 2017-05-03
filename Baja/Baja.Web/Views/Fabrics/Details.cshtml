@@ -29,12 +29,11 @@
         <dt>
             @Html.DisplayNameFor(model => model.ImageUrl)
         </dt>
-
+        
         <dd>
-            @Html.DisplayFor(model => model.ImageUrl)
+            <img src="~/Content/Fabrics/@Model.ImageUrl" />
+            
         </dd>
-
-        @*Test*@
 
         <dt>
             @Html.DisplayNameFor(model => model.Restrictions)

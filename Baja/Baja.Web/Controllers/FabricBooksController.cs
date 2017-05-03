@@ -51,6 +51,7 @@ namespace Baja.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name,FabricCategoryId")] FabricBook fabricBook)
         {
+
             if (ModelState.IsValid)
             {
                 db.FabricBooks.Add(fabricBook);
