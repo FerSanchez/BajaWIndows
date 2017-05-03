@@ -4,6 +4,10 @@
     ViewBag.Title = "Edit";
 }
 
+@{
+    Layout = "";
+}
+
 <h2>Edit</h2>
 
 
@@ -41,19 +45,27 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Restrictions,  new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+
+
+       
+
+
+        <div >
+            <label>Restrictions </label>
+            <div >
+
                @for (int i = 0; i < Model.Restrictions.Count(); i++)
                {
-                   @Html.EditorFor(m => Model.Restrictions[i].Checked)
-                   @Html.DisplayFor(m => Model.Restrictions[i].Name)
+                    @Html.EditorFor(m => Model.Restrictions[i].Checked)
+                    @Html.DisplayFor(m => Model.Restrictions[i].Name)
 
-                   @Html.HiddenFor(m => Model.Restrictions[i].Name)
-                   @Html.HiddenFor(m => Model.Restrictions[i].Id)
-                   <br />
+                    @Html.HiddenFor(m => Model.Restrictions[i].Name)
+                    @Html.HiddenFor(m => Model.Restrictions[i].Id)
 
-               }
+                    <br />
+
+                    }
+
             </div>
         </div>
 
@@ -68,6 +80,7 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
