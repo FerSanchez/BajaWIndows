@@ -81,8 +81,8 @@
     <Compile Include="Fabric\Fabric.cs" />
     <Compile Include="Fabric\FabricBook.cs" />
     <Compile Include="Fabric\FabricCategory.cs" />
+    <Compile Include="Fabric\FabricOnRestriction.cs" />
     <Compile Include="Fabric\FabricRestriction.cs" />
-    <Compile Include="Fabric\FabricViewModel.cs" />
     <Compile Include="Migrations\201705021636015_PhaseFabric.cs" />
     <Compile Include="Migrations\201705021636015_PhaseFabric.Designer.cs">
       <DependentUpon>201705021636015_PhaseFabric.cs</DependentUpon>
@@ -102,6 +102,18 @@
     <Compile Include="Migrations\201705021837203_MTM.cs" />
     <Compile Include="Migrations\201705021837203_MTM.Designer.cs">
       <DependentUpon>201705021837203_MTM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705022056239_FabricRes.cs" />
+    <Compile Include="Migrations\201705022056239_FabricRes.Designer.cs">
+      <DependentUpon>201705022056239_FabricRes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705022336525_FFR1.cs" />
+    <Compile Include="Migrations\201705022336525_FFR1.Designer.cs">
+      <DependentUpon>201705022336525_FFR1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705022341140_FOR1.cs" />
+    <Compile Include="Migrations\201705022341140_FOR1.Designer.cs">
+      <DependentUpon>201705022341140_FOR1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -126,6 +138,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705021837203_MTM.resx">
       <DependentUpon>201705021837203_MTM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705022056239_FabricRes.resx">
+      <DependentUpon>201705022056239_FabricRes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705022336525_FFR1.resx">
+      <DependentUpon>201705022336525_FFR1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705022341140_FOR1.resx">
+      <DependentUpon>201705022341140_FOR1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

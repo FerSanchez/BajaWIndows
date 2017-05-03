@@ -37,9 +37,12 @@ namespace Baja.Web.Controllers
             return View(fabric);
         }
 
+
         // GET: Fabrics/Create
         public ActionResult Create()
         {
+
+            ViewBag.RestrictionList = new MultiSelectList(db.FabricRestrictions, "Id", "Name");
             ViewBag.FabricBookId = new SelectList(db.FabricBooks, "Id", "Name");
             return View();
         }
@@ -51,10 +54,23 @@ namespace Baja.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name,ImageUrl,FabricBookId")] Fabric fabric)
         {
+
             if (ModelState.IsValid)
             {
                 db.Frabrics.Add(fabric);
                 db.SaveChanges();
+                foreach (var itemId in fabric.SelectedRestrictionList)
+                {
+                    var obj = new FabricOnRestriction()
+                    {
+
+                       FabricId = fabric.Id,
+                       FabricRestrictionId = Convert.ToInt32(itemId)
+
+                    };
+                    db.FabricOnRestrictions.Add(obj);
+                }
+
                 return RedirectToAction("Index");
             }
 
