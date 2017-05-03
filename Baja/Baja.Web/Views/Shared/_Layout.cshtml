@@ -72,6 +72,11 @@
             $(".dropdown-button").dropdown();
             $('select').material_select();
         });
+
+        $('input:hidden').each(function (index, element) {
+            $(element).appendTo($(element).parent());
+        });
+
     </script>
    
 </body>
