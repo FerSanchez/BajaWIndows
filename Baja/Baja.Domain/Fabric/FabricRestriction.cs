@@ -15,5 +15,11 @@ namespace Baja.Domain.Fabric
         [Display(Name = "Restriction")]
         public string Name { get; set; }
 
+
+
+        /// ////////////////////////////////////
+
+        public virtual ICollection<FabricOnRestriction> FabricOnRestrictions { get; set; }
+
     }
 }

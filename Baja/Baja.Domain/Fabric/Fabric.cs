@@ -22,6 +22,9 @@ namespace Baja.Domain.Fabric
         public FabricBook FabricBooks { get; set; }
 
 
+        /// ///////////////////////////////////////////////
+
+        public virtual ICollection<FabricOnRestriction> FabricOnRestrictions { get; set; }
 
         //////////////////////////////////////////////////
 
@@ -30,7 +33,7 @@ namespace Baja.Domain.Fabric
 
         public ICollection<int>[] SelectedRestrictionList { get; set; }
         //Puede ser List o IEnumerable\\
-        public virtual ICollection<FabricOnRestriction> FabricOnRestrictions { get; set; }
+        
 
        
         
