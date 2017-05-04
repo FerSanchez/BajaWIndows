@@ -109,7 +109,7 @@ namespace Baja.Web.Controllers
             }
             else
             {
-                fabric.ImageUrl = "null";
+                fabric.ImageUrl = "default.jpg";
             }
 
 
@@ -171,14 +171,24 @@ namespace Baja.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(FabricViewModel fabric )
+        public ActionResult Edit(FabricViewModel fabric, HttpPostedFileBase img)
         {
             if (ModelState.IsValid)
             {
+
                 var myFabric = db.Frabrics.Find(fabric.FabricId);
 
+                if (img != null)
+                {
+                    var folder = Server.MapPath("~/Content/Fabrics/");
+                    var imageUrl = Path.GetFileName(img.FileName);
+                    var filename = Path.Combine(folder, imageUrl);
+                    img.SaveAs(filename);
+                    myFabric.ImageUrl = imageUrl;
+                     
+                }
+   
                 myFabric.Name = fabric.Name;
-                myFabric.ImageUrl = fabric.ImageUrl;
                 myFabric.FabricBookId = fabric.FabricBookId;
 
                 foreach (var item in db.Fabric_Restrictions)

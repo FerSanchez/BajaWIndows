@@ -11,10 +11,10 @@
 <h2>Edit</h2>
 
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+<form action="@Url.Action("Edit")" method="post" enctype="multipart/form-data">
     
+    @Html.AntiForgeryToken()
+
     <div class="form-horizontal">
         <h4>Fabric</h4>
         <hr />
@@ -32,8 +32,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ImageUrl, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ImageUrl, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ImageUrl, "", new { @class = "text-danger" })
+                <input type="file" name="img" />
             </div>
         </div>
 
@@ -46,16 +45,12 @@
         </div>
 
 
-
-       
-
-
-        <div >
+        <div>
             <label>Restrictions </label>
-            <div >
+            <div>
 
-               @for (int i = 0; i < Model.Restrictions.Count(); i++)
-               {
+                @for (int i = 0; i < Model.Restrictions.Count(); i++)
+                {
                     @Html.EditorFor(m => Model.Restrictions[i].Checked)
                     @Html.DisplayFor(m => Model.Restrictions[i].Name)
 
@@ -64,7 +59,7 @@
 
                     <br />
 
-                    }
+                }
 
             </div>
         </div>
@@ -75,13 +70,13 @@
             </div>
         </div>
     </div>
-}
+</form>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
 
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
