@@ -27,8 +27,8 @@
     <header>
         
         <!-- Dropdown Structure -->
-        <ul id="dropdown1" class="dropdown-content">
-            <li>@Html.ActionLink("Styles", "Index", "Fabrics")</li>
+        <ul id="FabricsDrowdown" class="dropdown-content">
+            <li>@Html.ActionLink("All Fabrics", "Index", "Fabrics")</li>
             <li>@Html.ActionLink("Categories", "Index", "FabricCategories")</li>
             <li>@Html.ActionLink("Books", "Index", "FabricBooks")</li>
             <li>@Html.ActionLink("Restrictions", "Index", "FabricRestrictions")</li>
@@ -37,10 +37,10 @@
         <nav>
             <div class="nav-wrapper grey darken-3">
                 <a href="http://localhost:55873/" id="level3" class="brand-logo">Level 3 <i class="fa fa-windows" aria-hidden="true"></i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a class="dropdown-button" href="#" data-activates="dropdown1">Fabrics<i class="material-icons right">arrow_drop_down</i></a></li>
-                    <li>@Html.Partial("_LoginPartial")</li>
 
+                <ul class="right hide-on-med-and-down">
+                    <li><a class="dropdown-button" href="#" data-activates="FabricsDrowdown">Fabrics<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li>@Html.Partial("_LoginPartial")</li>
                 </ul>
             </div>
         </nav>
@@ -66,7 +66,7 @@
 
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-     Compiled and minified JavaScript 
+    @* Compiled and minified JavaScript*@ 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 
     <script>
@@ -75,9 +75,6 @@
             $('select').material_select();
         });
 
-        $('input:hidden').each(function (index, element) {
-            $(element).appendTo($(element).parent());
-        });
 
     </script>
    
