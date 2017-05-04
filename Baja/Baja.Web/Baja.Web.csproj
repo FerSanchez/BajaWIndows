@@ -271,7 +271,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\FabricBooks\Create.cshtml" />
     <Content Include="Views\FabricBooks\Delete.cshtml" />
-    <Content Include="Views\FabricBooks\Details.cshtml" />
     <Content Include="Views\FabricBooks\Edit.cshtml" />
     <Content Include="Views\FabricBooks\Index.cshtml" />
     <Content Include="Views\Fabrics\Create.cshtml" />

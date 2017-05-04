@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Fabric Books</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,8 +12,8 @@
 
 
 <div class="row">
-    <div class="col s8 offset-s1">
-        <table>
+    <div class="col s7 offset-s1">
+        <table class="highlight centered responsive-table bordered">
             <thead>
                 <tr>
                     <th>
@@ -23,7 +23,7 @@
                         @Html.DisplayNameFor(model => model.Name)
                     </th>
                     <th>
-
+                        Actions
                     </th>
                 </tr>
             </thead>
