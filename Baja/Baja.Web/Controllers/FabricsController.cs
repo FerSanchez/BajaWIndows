@@ -36,7 +36,6 @@ namespace Baja.Web.Controllers
                 return HttpNotFound();
             }
 
-            //
             var Results = from b in db.FabricRestrictions
                           select new
                           {
@@ -52,7 +51,6 @@ namespace Baja.Web.Controllers
             MyViewModel.Name = fabric.Name;
             MyViewModel.ImageUrl = fabric.ImageUrl;
             MyViewModel.FabricBookId = fabric.FabricBookId;
-
 
             FabricBook fb = db.FabricBooks.Find(MyViewModel.FabricBookId);
             if (fb == null)
@@ -75,15 +73,11 @@ namespace Baja.Web.Controllers
             foreach (var item in Results)
             {
                 MyCheckBoxList.Add(new CheckBoxViewModel { Id = item.Id, Name = item.Name, Checked = item.Checked });
-
             }
 
             MyViewModel.Restrictions = MyCheckBoxList;
 
-            //
-
             ViewBag.FabricBookId = new SelectList(db.FabricBooks, "Id", "Name", fabric.FabricBookId);
-
             return View(MyViewModel);
         }
 
@@ -91,11 +85,11 @@ namespace Baja.Web.Controllers
         // GET: Fabrics/Create
         public ActionResult Create()
         {
-
             ViewBag.RestrictionList = new MultiSelectList(db.FabricRestrictions, "Id", "Name");
             ViewBag.FabricBookId = new SelectList(db.FabricBooks, "Id", "Name");
             return View();
         }
+
 
         // POST: Fabrics/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -104,7 +98,6 @@ namespace Baja.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name,ImageUrl,FabricBookId")] Fabric fabric, HttpPostedFileBase img)
         {
-
             //Agregar Imagen\\
             if (img != null)
             {
@@ -144,7 +137,6 @@ namespace Baja.Web.Controllers
                 return HttpNotFound();
             }
 
-            //
             var Results = from b in db.FabricRestrictions
                           select new
                           {
@@ -161,7 +153,6 @@ namespace Baja.Web.Controllers
             MyViewModel.ImageUrl = fabric.ImageUrl;
             MyViewModel.FabricBookId = fabric.FabricBookId;
             
-
             var MyCheckBoxList = new List<CheckBoxViewModel>();
             foreach (var item in Results)
             {
@@ -171,10 +162,7 @@ namespace Baja.Web.Controllers
 
             MyViewModel.Restrictions = MyCheckBoxList;
 
-            //
-
             ViewBag.FabricBookId = new SelectList(db.FabricBooks, "Id", "Name", fabric.FabricBookId);
-
             return View(MyViewModel);
         }
 
@@ -219,10 +207,6 @@ namespace Baja.Web.Controllers
             ViewBag.FabricBookId = new SelectList(db.FabricBooks, "Id", "Name", fabric.FabricBookId);
             return View(fabric);
         }
-
-
-
-
 
         // GET: Fabrics/Delete/5
         public ActionResult Delete(int? id)
