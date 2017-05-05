@@ -31,6 +31,5 @@ namespace Baja.Web.Models
             return new ApplicationDbContext();
         }
 
-        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
     }
 }
