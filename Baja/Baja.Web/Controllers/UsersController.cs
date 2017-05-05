@@ -38,8 +38,28 @@ namespace Baja.Web.Controllers
 
             if (appUser == null) 
                 return HttpNotFound();
-            
+
             ViewBag.Name = new SelectList(db.Roles.ToList(), "Name", "Name");
+            return View(appUser);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(ApplicationUser appUser)
+        {
+            if (ModelState.IsValid)
+            {
+                // Manager Enabled \\
+                var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+                manager.UserValidator = new UserValidator<ApplicationUser>(manager);
+
+                manager.AddToRoleAsync(appUser.Id, ViewBag.Name);
+                db.Entry(appUser).State = EntityState.Modified;
+                db.SaveChanges();
+
+                ViewBag.Name = new SelectList(db.Roles.ToList(), "Name", "Name");
+                return RedirectToAction("Index");
+            }
+         
             return View(appUser);
         }
 
