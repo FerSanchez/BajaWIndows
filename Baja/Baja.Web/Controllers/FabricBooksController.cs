@@ -22,6 +22,7 @@ namespace Baja.Web.Controllers
             return View(fabricBooks.ToList());
         }
 
+
         // GET: FabricBooks/Details/5
         public ActionResult Details(int? id)
         {
@@ -96,52 +97,52 @@ namespace Baja.Web.Controllers
             return View(fabricBook);
         }
 
-       //// GET: FabricBooks/Delete/5
-       // public ActionResult Delete(int? id)
-       // {
-       //     if (id == null)
-       //     {
-       //         return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-       //     }
-       //     FabricBook fabricBook = db.FabricBooks.Find(id);
-       //     if (fabricBook == null)
-       //     {
-       //         return HttpNotFound();
-       //     }
-       //     return View(fabricBook);
-       // }
-
-
-
-       // // POST: FabricBooks/Delete/5
-       // [HttpPost, ActionName("Delete")]
-       // [ValidateAntiForgeryToken]
-       // public ActionResult DeleteConfirmed(int id)
-       // {
-       //     FabricBook fabricBook = db.FabricBooks.Find(id);
-       //     db.FabricBooks.Remove(fabricBook);
-       //     db.SaveChanges();
-       //     return RedirectToAction("Index");
-       // }
-
-
-
-        [HttpPost]
-        public ActionResult Delete(int id)
+        // GET: FabricBooks/Delete/5
+        public ActionResult Delete(int? id)
         {
-            var fabricbooks = db.FabricBooks.Find(id);
-            if (fabricbooks == null) return HttpNotFound();
-
-            db.FabricBooks.Remove(fabricbooks);
-            db.SaveChanges();
-
-            if (Request.IsAjaxRequest())
+            if (id == null)
             {
-                return Json(new { success = true });
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            FabricBook fabricBook = db.FabricBooks.Find(id);
+            if (fabricBook == null)
+            {
+                return HttpNotFound();
+            }
+            return View(fabricBook);
+        }
 
+
+
+        // POST: FabricBooks/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            FabricBook fabricBook = db.FabricBooks.Find(id);
+            db.FabricBooks.Remove(fabricBook);
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
+
+        //[HttpPost]
+        //public ActionResult Delete(int id)
+        //{
+        //    var fabricbooks = db.FabricBooks.Find(id);
+        //    if (fabricbooks == null) return HttpNotFound();
+
+        //    db.FabricBooks.Remove(fabricbooks);
+        //    db.SaveChanges();
+
+        //    if (Request.IsAjaxRequest())
+        //    {
+        //        return Json(new { success = true });
+        //    }
+
+        //    return RedirectToAction("Index");
+        //}
 
 
         protected override void Dispose(bool disposing)
