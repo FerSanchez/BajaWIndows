@@ -4,9 +4,9 @@
     ViewBag.Title = "Edit";
 }
 
-@{
+@*@{
     Layout = "";
-}
+}*@
 
 <h2>Edit</h2>
 
@@ -48,16 +48,23 @@
         <div>
             <label>Restrictions </label>
             <div>
+               
 
                 @for (int i = 0; i < Model.Restrictions.Count(); i++)
                 {
-                    @Html.EditorFor(m => Model.Restrictions[i].Checked)
-                    @Html.DisplayFor(m => Model.Restrictions[i].Name)
+                    <input type="checkbox" name="Model.Restrictions[i].Checked" value="true" id="@Model.Restrictions[i].Id" />
+                    <label for="@Model.Restrictions[i].Id">@Model.Restrictions[i].Name</label>
+                    @*@Html.EditorFor(m => Model.Restrictions[i].Checked, new { @checked="cheked" })*@
+                    @*@Html.DisplayFor(m => Model.Restrictions[i].Name)*@
 
                     @Html.HiddenFor(m => Model.Restrictions[i].Name)
                     @Html.HiddenFor(m => Model.Restrictions[i].Id)
 
-                    <br />
+                    @*<p>
+                        <input type="checkbox" id="chck" checked="@Model.Restrictions[i].Checked" />
+                        <label for="chck">@Model.Restrictions[i].Name</label>
+                    </p>*@
+
                 }
 
             </div>
