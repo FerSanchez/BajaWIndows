@@ -18,7 +18,8 @@ namespace Baja.Domain
         public DbSet<FabricRestriction> FabricRestrictions { get; set; }
         public DbSet<Fabric_Restriction> Fabric_Restrictions { get; set; }
 
-
+        /// TRIM //
+        public DbSet<Trim.Trim> Trims { get; set; }
 
 
     }

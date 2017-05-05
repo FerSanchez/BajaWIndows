@@ -21,7 +21,8 @@ namespace Baja.Web.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+        //: base("DefaultConnection", throwIfV1Schema: false)
+        : base("BajaDbContext", throwIfV1Schema: false)
         {
         }
 
@@ -29,5 +30,7 @@ namespace Baja.Web.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Baja.Web.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

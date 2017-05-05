@@ -121,9 +121,14 @@
     <Compile Include="Migrations\201705032217343_FabricManyToMany.Designer.cs">
       <DependentUpon>201705032217343_FabricManyToMany.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705050240439_TrimBase.cs" />
+    <Compile Include="Migrations\201705050240439_TrimBase.Designer.cs">
+      <DependentUpon>201705050240439_TrimBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RomanShade\Mount.cs" />
+    <Compile Include="Trim\Trim.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -157,7 +162,11 @@
     <EmbeddedResource Include="Migrations\201705032217343_FabricManyToMany.resx">
       <DependentUpon>201705032217343_FabricManyToMany.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705050240439_TrimBase.resx">
+      <DependentUpon>201705050240439_TrimBase.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
