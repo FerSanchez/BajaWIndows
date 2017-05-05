@@ -196,6 +196,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ControlPanelController.cs" />
     <Compile Include="Controllers\FabricBooksController.cs" />
     <Compile Include="Controllers\FabricCategoriesController.cs" />
     <Compile Include="Controllers\FabricRestrictionsController.cs" />
@@ -297,6 +298,7 @@
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Shared\_LayoutMaterialize.cshtml" />
+    <Content Include="Views\ControlPanel\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
