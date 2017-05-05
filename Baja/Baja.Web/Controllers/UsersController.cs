@@ -1,4 +1,5 @@
-﻿using Baja.Web.Models;
+﻿using Baja.Domain.User;
+using Baja.Web.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -39,12 +41,26 @@ namespace Baja.Web.Controllers
             if (appUser == null) 
                 return HttpNotFound();
 
-            ViewBag.Name = new SelectList(db.Roles.ToList(), "Name", "Name");
-            return View(appUser);
+
+            List<SelectListItem> list = new List<SelectListItem>();
+            foreach (var role in db.Roles)
+            {
+                list.Add(new SelectListItem() { Value = role.Name, Text = role.Name });
+            }
+            ViewBag.Roles = list;
+
+            UserViewModel user = new UserViewModel();
+            user.UserId = appUser.Id;
+            user.UserName = appUser.UserName;
+            user.Email = appUser.Email;
+
+            return View(user);
         }
 
+
+
         [HttpPost]
-        public ActionResult Edit(ApplicationUser appUser)
+        public ActionResult Edit(UserViewModel editUser)
         {
             if (ModelState.IsValid)
             {
@@ -52,15 +68,24 @@ namespace Baja.Web.Controllers
                 var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
                 manager.UserValidator = new UserValidator<ApplicationUser>(manager);
 
-                manager.AddToRoleAsync(appUser.Id, ViewBag.Name);
-                db.Entry(appUser).State = EntityState.Modified;
-                db.SaveChanges();
+                var user = manager.FindByEmail(editUser.Email);
+                user.UserName = editUser.UserName;
 
-                ViewBag.Name = new SelectList(db.Roles.ToList(), "Name", "Name");
+                //If Choose A Role \\
+                if(editUser.RoleName != null)
+                {                   
+                    foreach (var role in manager.GetRoles(user.Id))
+                    {
+                        manager.RemoveFromRole(editUser.UserId, role);
+                    }
+                    manager.AddToRole(user.Id, editUser.RoleName);
+                }
+
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-         
-            return View(appUser);
+
+            return View(editUser);
         }
 
     }
