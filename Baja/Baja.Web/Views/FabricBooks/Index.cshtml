@@ -4,15 +4,11 @@
     ViewBag.Title = "Index";
 }
 
-<h2 class="tituloh2">Fabric Books</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
-
+<h2 class="tituloh2">
+    Fabric Books <a style="color:navy"href="http://localhost:55873/FabricBooks/Create"><abbr title="New"><i class="fa fa-plus-square-o" aria-hidden="true"></i></abbr></a>
+</h2>
 <div class="row">
-    <div class="col s7 offset-s1">
+    <div class="col s7 offset-s2">
         <table class="highlight centered responsive-table bordered">
             <thead>
                 <tr>
@@ -39,8 +35,8 @@
                             @Html.DisplayFor(modelItem => item.Name)
                         </td>
                         <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                            <a style="color:lightslategray" href="@Url.Action("Edit", new {id= item.Id })"><abbr title="Edit"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></abbr></a>  &nbsp;  &nbsp; 
+                            <a style="color:lightslategray" href="@Url.Action("Delete", new {id= item.Id })"><abbr title="Delete"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></abbr></a> 
                         </td>
                     </tr>
                 }
