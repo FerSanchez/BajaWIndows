@@ -196,6 +196,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ApplicationUsersController.cs" />
     <Compile Include="Controllers\FabricBooksController.cs" />
     <Compile Include="Controllers\FabricCategoriesController.cs" />
     <Compile Include="Controllers\FabricRestrictionsController.cs" />
@@ -294,6 +295,11 @@
     <Content Include="Views\FabricRestrictions\Details.cshtml" />
     <Content Include="Views\FabricRestrictions\Edit.cshtml" />
     <Content Include="Views\FabricRestrictions\Index.cshtml" />
+    <Content Include="Views\ApplicationUsers\Create.cshtml" />
+    <Content Include="Views\ApplicationUsers\Delete.cshtml" />
+    <Content Include="Views\ApplicationUsers\Details.cshtml" />
+    <Content Include="Views\ApplicationUsers\Edit.cshtml" />
+    <Content Include="Views\ApplicationUsers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
