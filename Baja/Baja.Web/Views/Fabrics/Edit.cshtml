@@ -4,9 +4,6 @@
     ViewBag.Title = "Edit";
 }
 
-@{
-    Layout = "";
-}
 
 <h2>Edit</h2>
 
@@ -51,7 +48,7 @@
 
                 @for (int i = 0; i < Model.Restrictions.Count(); i++)
                 {
-                    @Html.EditorFor(m => Model.Restrictions[i].Checked)
+                    @Html.CheckBoxFor(m => Model.Restrictions[i].Checked)
                     @Html.DisplayFor(m => Model.Restrictions[i].Name)
 
                     @Html.HiddenFor(m => Model.Restrictions[i].Name)

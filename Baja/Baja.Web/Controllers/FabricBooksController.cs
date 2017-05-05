@@ -96,31 +96,53 @@ namespace Baja.Web.Controllers
             return View(fabricBook);
         }
 
-        // GET: FabricBooks/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            FabricBook fabricBook = db.FabricBooks.Find(id);
-            if (fabricBook == null)
-            {
-                return HttpNotFound();
-            }
-            return View(fabricBook);
-        }
+       //// GET: FabricBooks/Delete/5
+       // public ActionResult Delete(int? id)
+       // {
+       //     if (id == null)
+       //     {
+       //         return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+       //     }
+       //     FabricBook fabricBook = db.FabricBooks.Find(id);
+       //     if (fabricBook == null)
+       //     {
+       //         return HttpNotFound();
+       //     }
+       //     return View(fabricBook);
+       // }
 
-        // POST: FabricBooks/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+
+
+       // // POST: FabricBooks/Delete/5
+       // [HttpPost, ActionName("Delete")]
+       // [ValidateAntiForgeryToken]
+       // public ActionResult DeleteConfirmed(int id)
+       // {
+       //     FabricBook fabricBook = db.FabricBooks.Find(id);
+       //     db.FabricBooks.Remove(fabricBook);
+       //     db.SaveChanges();
+       //     return RedirectToAction("Index");
+       // }
+
+
+
+        [HttpPost]
+        public ActionResult Delete(int id)
         {
-            FabricBook fabricBook = db.FabricBooks.Find(id);
-            db.FabricBooks.Remove(fabricBook);
+            var fabricbooks = db.FabricBooks.Find(id);
+            if (fabricbooks == null) return HttpNotFound();
+
+            db.FabricBooks.Remove(fabricbooks);
             db.SaveChanges();
+
+            if (Request.IsAjaxRequest())
+            {
+                return Json(new { success = true });
+            }
+
             return RedirectToAction("Index");
         }
+
 
         protected override void Dispose(bool disposing)
         {

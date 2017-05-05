@@ -27,22 +27,60 @@
             <tbody>
                 @foreach (var item in Model)
                 {
+                    var contador = 1;
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.FabricCategories.Name)
+                            @Html.DisplayFor(modelItem => item.FabricCategories.Name, new { id = contador })
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Name)
+                            @Html.DisplayFor(modelItem => item.Name, new { id = contador })
                         </td>
                         <td>
+                            <a href="@Url.Action("Delete", new { id =item.Id })" class="delete-link" style="color:red;">&times;</a>
                             <a style="color:lightslategray" href="@Url.Action("Edit", new {id= item.Id })"><abbr title="Edit"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></abbr></a>  &nbsp;  &nbsp; 
                             <a style="color:lightslategray" href="@Url.Action("Delete", new {id= item.Id })"><abbr title="Delete"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></abbr></a> 
                         </td>
                     </tr>
+                    contador++;
                 }
 
             </tbody>
         </table>
     </div>
 </div>
+
+@section scripts{
+    <script>
+        $(".delete-link").click(deletefabricBook);
+        var $link;
+        var $cont;
+
+        function deletefabricBook() {
+            $link = $(this);
+            $cont = $(this);
+
+            var url = $link.attr("href");
+            var td = $cont.attr("td");
+
+            if (confirm("Se borrará la el libro")) {
+                $.post(url, {}, afterDelete);
+            }
+            return false;
+        }
+
+        function afterDelete(data) {
+            $link.parent().remove();
+            $cont.parent().remove();
+
+
+
+
+        }
+</script>
+}
+
+
+
+
+
 
