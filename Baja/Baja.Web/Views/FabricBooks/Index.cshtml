@@ -1,8 +1,9 @@
 ﻿@model IEnumerable<Baja.Domain.Fabric.FabricBook>
 
 @{
-    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutMaterialize.cshtml";
 }
+
 
 <h2 class="tituloh2">
     Fabric Books <a style="color:navy"href="http://localhost:55873/FabricBooks/Create"><abbr title="New"><i class="fa fa-plus-square-o" aria-hidden="true"></i></abbr></a>
@@ -36,7 +37,6 @@
                             @Html.DisplayFor(modelItem => item.Name, new { id = contador })
                         </td>
                         <td>
-                            <a href="@Url.Action("Delete", new { id =item.Id })" class="delete-link" style="color:red;">&times;</a>
                             <a style="color:lightslategray" href="@Url.Action("Edit", new {id= item.Id })"><abbr title="Edit"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></abbr></a>  &nbsp;  &nbsp; 
                             <a style="color:lightslategray" href="@Url.Action("Delete", new {id= item.Id })"><abbr title="Delete"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></abbr></a> 
                         </td>
@@ -48,36 +48,6 @@
         </table>
     </div>
 </div>
-
-@section scripts{
-    <script>
-        $(".delete-link").click(deletefabricBook);
-        var $link;
-        var $cont;
-
-        function deletefabricBook() {
-            $link = $(this);
-            $cont = $(this);
-
-            var url = $link.attr("href");
-            var td = $cont.attr("td");
-
-            if (confirm("Se borrará la el libro")) {
-                $.post(url, {}, afterDelete);
-            }
-            return false;
-        }
-
-        function afterDelete(data) {
-            $link.parent().remove();
-            $cont.parent().remove();
-
-
-
-
-        }
-</script>
-}
 
 
 
