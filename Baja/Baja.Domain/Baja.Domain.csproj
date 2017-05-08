@@ -129,6 +129,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RomanShade\Mount.cs" />
     <Compile Include="Trim\Trim.cs" />
+    <Compile Include="User\RoleNames.cs" />
+    <Compile Include="User\UserRoleViewModel.cs" />
     <Compile Include="User\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
