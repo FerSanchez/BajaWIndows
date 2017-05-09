@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace Baja.Web.Controllers
 {
-    [Authorize(Roles = RoleNames.Administrator)]
+   [Authorize(Roles = RoleNames.Administrator)]
     public class ControlPanelController : Controller
     {
         public ActionResult Index()
