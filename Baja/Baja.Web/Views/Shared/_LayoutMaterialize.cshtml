@@ -20,29 +20,34 @@
             font-family: GillSans;
             color: black;
         }
+
         #der {
             font-family: GillSans;
             color: black;
         }
 
         #tituloh2 {
-            font-size:xx-large;
+            font-size: xx-large;
             font-family: GillSans;
             text-align: center;
         }
-
     </style>
 </head>
 <body>
-    <header>       
+    <header>
         <nav>
             <div class="nav-wrapper grey lighten-5">
                 <a href="http://localhost:55873/" id="level3" class="brand-logo">Level 3 <i class="fa fa-windows" aria-hidden="true"></i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a id="der" href="http://localhost:55873/Account/Register">Register</a></li>
-                    <li><a id="der" href="http://localhost:55873/Account/Login">Log in</a></li>
-                    <li><a id="der" href="http://localhost:55873/ControlPanel/Index">Admin &nbsp;<i class="fa fa-key" aria-hidden="true"></i></a></li>
-                </ul>
+
+                    <ul class="right hide-on-med-and-down">
+                       <li>@Html.Partial("_LoginPartial")</li> 
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li><a id="der" href="http://localhost:55873/ControlPanel/Index">Admin &nbsp;<i class="fa fa-key" aria-hidden="true"></i></a></li>
+                        }
+        
+                    </ul>
+
             </div>
         </nav>
 
