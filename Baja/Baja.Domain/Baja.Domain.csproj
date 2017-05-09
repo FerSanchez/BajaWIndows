@@ -125,10 +125,20 @@
     <Compile Include="Migrations\201705050240439_TrimBase.Designer.cs">
       <DependentUpon>201705050240439_TrimBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705091652224_TrimTables.cs" />
+    <Compile Include="Migrations\201705091652224_TrimTables.Designer.cs">
+      <DependentUpon>201705091652224_TrimTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705091658486_TrimRestrictiosnEdit.cs" />
+    <Compile Include="Migrations\201705091658486_TrimRestrictiosnEdit.Designer.cs">
+      <DependentUpon>201705091658486_TrimRestrictiosnEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Restriction\Restrictions.cs" />
     <Compile Include="RomanShade\Mount.cs" />
     <Compile Include="Trim\Trim.cs" />
+    <Compile Include="Trim\Trim_Restrictions.cs" />
     <Compile Include="User\RoleNames.cs" />
     <Compile Include="User\UserRoleViewModel.cs" />
     <Compile Include="User\UserViewModel.cs" />
@@ -167,6 +177,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705050240439_TrimBase.resx">
       <DependentUpon>201705050240439_TrimBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705091652224_TrimTables.resx">
+      <DependentUpon>201705091652224_TrimTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705091658486_TrimRestrictiosnEdit.resx">
+      <DependentUpon>201705091658486_TrimRestrictiosnEdit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

@@ -196,15 +196,17 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ControlPanelController.cs" />
-    <Compile Include="Controllers\FabricBooksController.cs" />
-    <Compile Include="Controllers\FabricCategoriesController.cs" />
-    <Compile Include="Controllers\FabricRestrictionsController.cs" />
-    <Compile Include="Controllers\FabricsController.cs" />
+    <Compile Include="Controllers\ControlPanel\ControlPanelController.cs" />
+    <Compile Include="Controllers\Fabrics\FabricBooksController.cs" />
+    <Compile Include="Controllers\Fabrics\FabricCategoriesController.cs" />
+    <Compile Include="Controllers\Fabrics\FabricRestrictionsController.cs" />
+    <Compile Include="Controllers\Fabrics\FabricsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\RoleController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\Restrictions\RestrictionsController.cs" />
+    <Compile Include="Controllers\Trims\TrimsController.cs" />
+    <Compile Include="Controllers\Users\RoleController.cs" />
+    <Compile Include="Controllers\Users\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -299,6 +301,16 @@
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Shared\_LayoutMaterialize.cshtml" />
     <Content Include="Views\ControlPanel\Index.cshtml" />
+    <Content Include="Views\Restrictions\Create.cshtml" />
+    <Content Include="Views\Restrictions\Delete.cshtml" />
+    <Content Include="Views\Restrictions\Details.cshtml" />
+    <Content Include="Views\Restrictions\Edit.cshtml" />
+    <Content Include="Views\Restrictions\Index.cshtml" />
+    <Content Include="Views\Trims\Create.cshtml" />
+    <Content Include="Views\Trims\Delete.cshtml" />
+    <Content Include="Views\Trims\Details.cshtml" />
+    <Content Include="Views\Trims\Edit.cshtml" />
+    <Content Include="Views\Trims\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
