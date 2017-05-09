@@ -4,9 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-@*@{
-    Layout = "";
-}*@
+
 
 <h2>Edit</h2>
 
@@ -58,16 +56,6 @@
 
                     @Html.HiddenFor(m => Model.Restrictions[i].Name)
                     @Html.HiddenFor(m => Model.Restrictions[i].Id)
-
-
-
-                    @*<input type="checkbox" name="Model.Restrictions[i].Checked" value="true" id="@Model.Restrictions[i].Id" />
-                        <label for="@Model.Restrictions[i].Id">@Model.Restrictions[i].Name</label>*@
-
-                    @*<p>
-                        <input type="checkbox" id="chck" checked="@Model.Restrictions[i].Checked" />
-                        <label for="chck">@Model.Restrictions[i].Name</label>
-                    </p>*@
 
                 }
 

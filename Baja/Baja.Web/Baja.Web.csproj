@@ -233,6 +233,7 @@
     <Content Include="Content\ControlPanel\controlPanelTrims.jpg" />
     <Content Include="Content\ControlPanel\controlpanelUser.jpg" />
     <Content Include="Content\Fabrics\default.jpg" />
+    <Content Include="Content\Trims\default.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

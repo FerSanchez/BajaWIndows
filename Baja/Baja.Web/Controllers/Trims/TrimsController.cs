@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using Baja.Domain;
 using Baja.Domain.Trim;
+using Baja.Domain.Fabric;
+using System.IO;
 
 namespace Baja.Web.Controllers.Trims
 {
@@ -33,7 +35,34 @@ namespace Baja.Web.Controllers.Trims
             {
                 return HttpNotFound();
             }
-            return View(trim);
+
+            var Results = from b in db.Restrictions
+                          select new
+                          {
+                              b.Id,
+                              b.Name,
+                              Checked = ((from ab in db.Trim_Restrictions
+                                          where (ab.TrimId == id) && (ab.RestrictionsId == b.Id)
+                                          select ab).Count() > 0)
+                          };
+
+            var MyViewModel = new TrimViewModel();
+            MyViewModel.TrimId = id.Value;
+            MyViewModel.Name = trim.Name;
+            MyViewModel.ImageUrl = trim.ImageUrl;
+            MyViewModel.Description = trim.Description;
+
+           
+
+            var MyCheckBoxList = new List<CheckBoxViewModel>();
+            foreach (var item in Results)
+            {
+                MyCheckBoxList.Add(new CheckBoxViewModel { Id = item.Id, Name = item.Name, Checked = item.Checked });
+            }
+
+            MyViewModel.Restrictions = MyCheckBoxList;
+
+            return View(MyViewModel);
         }
 
         // GET: Trims/Create
@@ -47,8 +76,22 @@ namespace Baja.Web.Controllers.Trims
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Description,ImageUrl")] Trim trim)
-        {
+        public ActionResult Create([Bind(Include = "Id,Name,Description,ImageUrl")] Trim trim, HttpPostedFileBase img)
+        {//Agregar Imagen\\
+            if (img != null)
+            {
+                var folder = Server.MapPath("~/Content/Trims/");
+                var imageUrl = Path.GetFileName(img.FileName);
+                var filename = Path.Combine(folder, imageUrl);
+                img.SaveAs(filename);
+                trim.ImageUrl = imageUrl;
+            }
+            else
+            {
+                trim.ImageUrl = "default.jpg";
+            }
+
+
             if (ModelState.IsValid)
             {
                 db.Trims.Add(trim);
@@ -71,7 +114,34 @@ namespace Baja.Web.Controllers.Trims
             {
                 return HttpNotFound();
             }
-            return View(trim);
+
+            var Results = from b in db.Restrictions
+                          select new
+                          {
+                              b.Id,
+                              b.Name,
+                              Checked = ((from ab in db.Trim_Restrictions
+                                          where (ab.TrimId == id ) && (ab.RestrictionsId == b.Id)
+                                          select ab).Count() > 0)
+                          };
+
+            var MyViewModel = new TrimViewModel();
+            MyViewModel.TrimId = id.Value;
+            MyViewModel.Name = trim.Name;
+            MyViewModel.ImageUrl = trim.ImageUrl;
+            MyViewModel.Description = trim.Description;
+
+
+            var MyCheckBoxList = new List<CheckBoxViewModel>();
+            foreach (var item in Results)
+            {
+                MyCheckBoxList.Add(new CheckBoxViewModel { Id = item.Id, Name = item.Name, Checked = item.Checked });
+
+            }
+
+            MyViewModel.Restrictions = MyCheckBoxList;
+
+            return View(MyViewModel);
         }
 
         // POST: Trims/Edit/5
@@ -79,16 +149,57 @@ namespace Baja.Web.Controllers.Trims
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Description,ImageUrl")] Trim trim)
+        public ActionResult Edit( TrimViewModel trim, HttpPostedFileBase img)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(trim).State = EntityState.Modified;
+
+                var myTrim = db.Trims.Find(trim.TrimId);
+
+                if (img != null)
+                {
+                    var folder = Server.MapPath("~/Content/Fabrics/");
+                    var imageUrl = Path.GetFileName(img.FileName);
+                    var filename = Path.Combine(folder, imageUrl);
+                    img.SaveAs(filename);
+                    myTrim.ImageUrl = imageUrl;
+
+                }
+
+                myTrim.Name = trim.Name;
+                myTrim.Description = trim.Description;
+
+
+
+                foreach (var item in db.Trim_Restrictions)
+                {
+                    if (item.TrimId == trim.TrimId)
+                    {
+                        db.Entry(item).State = EntityState.Deleted;
+                    }
+                }
+
+                foreach (var item in trim.Restrictions)
+                {
+                    if (item.Checked)
+                    {
+                        db.Trim_Restrictions.Add(new Trim_Restrictions()
+                        {
+                            TrimId = trim.TrimId,
+                            RestrictionsId = item.Id
+                        });
+                    }
+                }
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             return View(trim);
+
         }
+       
+    
 
         // GET: Trims/Delete/5
         public ActionResult Delete(int? id)

@@ -2,12 +2,9 @@
 using Baja.Web.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace Baja.Web.Controllers
@@ -20,9 +17,6 @@ namespace Baja.Web.Controllers
         // GET: Users
         public ActionResult Index()
         {
-
-            //var users = db.Users.Include(r => r.Roles);
-            //return View(users.ToList());
 
             var result = from user in db.Users
                          from role in db.Roles
