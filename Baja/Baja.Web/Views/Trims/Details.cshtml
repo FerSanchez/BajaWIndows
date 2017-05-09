@@ -1,4 +1,4 @@
-﻿@model Baja.Domain.Trim.Trim
+﻿@model Baja.Domain.Trim.TrimViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -31,12 +31,25 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ImageUrl)
+            <img src="~/Content/Trims/@Model.ImageUrl" />
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Restrictions)
+        </dt>
+
+        <dd>
+            @foreach (var item in Model.Restrictions)
+            {
+                if (item.Checked)
+                {
+                    <div>@item.Name</div>
+                }
+            }
+        </dd>
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TrimId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

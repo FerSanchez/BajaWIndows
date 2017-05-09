@@ -1,10 +1,7 @@
 ﻿using Baja.Web.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Baja.Web.Controllers
@@ -60,23 +57,6 @@ namespace Baja.Web.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-
-        //// GET: Role/Edit/5
-        //public ActionResult Edit(int id)
-        //{
-        //    return View();
-        //}
-
-        //// POST: Role/Edit/5
-        //[HttpPost]
-        //public ActionResult Edit(int id, FormCollection collection)
-        //{
-
-        //    return View();
-
-        //}
-
 
     }
 }
