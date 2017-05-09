@@ -18,9 +18,22 @@ namespace Baja.Web.Controllers
         // GET: FabricBooks
         public ActionResult Index()
         {
-            var fabricBooks = db.FabricBooks.Include(f => f.FabricCategories);
-            return View(fabricBooks.ToList());
+     
+            return View();
         }
+
+        public ActionResult GetBooks()
+        {
+            var tblBooks = db.FabricBooks.Include(f => f.FabricCategories);
+            return Json(tblBooks.ToList(),JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Get(int id)
+        {
+            var book = db.FabricBooks.ToList().Find(x => x.Id == id);
+            return Json(book, JsonRequestBehavior.AllowGet);
+        }
+
 
 
         // GET: FabricBooks/Details/5
@@ -74,11 +87,17 @@ namespace Baja.Web.Controllers
             FabricBook fabricBook = db.FabricBooks.Find(id);
             if (fabricBook == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound");
             }
             ViewBag.FabricCategoryId = new SelectList(db.FabricCategories, "Id", "Name", fabricBook.FabricCategoryId);
             return View(fabricBook);
         }
+
+        public ActionResult NotFound()
+        {
+            return View();
+        }
+
 
         // POST: FabricBooks/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

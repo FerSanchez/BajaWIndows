@@ -34,22 +34,6 @@ namespace Baja.Web.Controllers
         }
 
 
-        //// GET: FabricCategories/Details/5
-        //public ActionResult Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    FabricCategory fabricCategory = db.FabricCategories.Find(id);
-        //    if (fabricCategory == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(fabricCategory);
-        //}
-
-
         // POST: FabricCategories/Create
         [HttpPost]
         public ActionResult Create([Bind(Exclude = "Id")] FabricCategory fabricCategory)
