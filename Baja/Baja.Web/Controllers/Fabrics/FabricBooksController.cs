@@ -24,7 +24,7 @@ namespace Baja.Web.Controllers
 
         public ActionResult GetBooks()
         {
-            var tblBooks = db.FabricBooks.Include(f => f.FabricCategories);
+            var tblBooks = db.FabricBooks.Include(f => f.FabricCategories).ToList();
             return Json(tblBooks.ToList(),JsonRequestBehavior.AllowGet);
         }
 
@@ -36,36 +36,24 @@ namespace Baja.Web.Controllers
 
 
 
-        // GET: FabricBooks/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            FabricBook fabricBook = db.FabricBooks.Find(id);
-            if (fabricBook == null)
-            {
-                return HttpNotFound();
-            }
-            return View(fabricBook);
-        }
+        //// GET: FabricBooks/Details/5
+        //public ActionResult Details(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    FabricBook fabricBook = db.FabricBooks.Find(id);
+        //    if (fabricBook == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(fabricBook);
+        //}
 
-        // GET: FabricBooks/Create
-        public ActionResult Create()
-        {
-            ViewBag.FabricCategoryId = new SelectList(db.FabricCategories, "Id", "Name");
-            return View();
-        }
-
-        // POST: FabricBooks/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name,FabricCategoryId")] FabricBook fabricBook)
         {
-
             if (ModelState.IsValid)
             {
                 db.FabricBooks.Add(fabricBook);

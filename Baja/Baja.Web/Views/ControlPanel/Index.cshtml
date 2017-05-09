@@ -12,10 +12,10 @@
     }
 </style>
 <div class="row">
-    <div class="col s2 m3">
+    <div class="col s3 offset-s1">
         <div class="card sticky-action" id="fl" style="overflow:hidden">
             <div class="card-image">
-                <img class="activator" src="https://cdn4.iconfinder.com/data/icons/rcons-user/32/user_man_lock_password_security-512.png">
+                <img class="activator" src="~/Content/ControlPanel/controlpanelUser.jpg">
             </div>
             <div class="card-content">
                 <span class="card-title activator">User Management<i class="material-icons right">more_vert</i></span>
@@ -52,7 +52,7 @@
 
         <div class="card sticky-action" style="display:inline-block">
             <div class="card-image">
-                <img class="activator" src="http://milloutletvillage.com/assets/images/gallery/drapery-fabric-order-raleigh1.jpg">
+                <img class="activator" src="~/Content/ControlPanel/controlpanelFabrics.jpg">
             </div>
             <div class="card-content">
                 <span class="card-title activator">Fabrics<i class="material-icons right">more_vert</i></span>
@@ -81,5 +81,155 @@
         </div>
     </div>
 
+    <!--  ----------------------------------------------------------------------------------------------------------------------------                                 -->
+
+    <div class="col s2 m3">
+
+        <div class="card sticky-action" style="display:inline-block">
+            <div class="card-image">
+                <img class="activator" src="~/Content/ControlPanel/controlPanelTrims.jpg">
+            </div>
+            <div class="card-content">
+                <span class="card-title activator">Trims<i class="material-icons right">more_vert</i></span>
+
+            </div>
+            <div class="card-action">
+                <p>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    @Html.ActionLink("All Trims", "Index", "Fabrics")
+                </p>
+
+                <p>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    @Html.ActionLink("Restrictions", "Index", "FabricRestrictions")
+                </p>
+
+
+            </div>
+            <div class="card-reveal" style="display:none;transform:translateY(0px);">
+                <span class="card-title grey-text text-darken-4">"Trims" <i class="material-icons right">close</i></span>
+                <p style="text-align:center">
+                    Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
+                </p>
+
+            </div>
+        </div>
+    </div>
+
 </div>
+
+
+    <!--  ----------------------------------------------------------------------------------------------------------------------------                                 -->
+<div class="row">
+    <div class="col s3 offset-s1">
+        <div class="card sticky-action" id="fl" style="overflow:hidden">
+            <div class="card-image">
+                <img class="activator" src="~/Content/ControlPanel/controlPanelHardware.jpg">
+            </div>
+            <div class="card-content">
+                <span class="card-title activator">Hardware<i class="material-icons right">more_vert</i></span>
+
+            </div>
+            <div class="card-action">
+                <p>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    @Html.ActionLink("Rods", "Index", "Users")
+                </p>
+                <p>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    @Html.ActionLink("Finials", "Index", "Role")
+                </p>
+
+            </div>
+            <div class="card-reveal" style="display:none;transform:translateY(0px);">
+                <span class="card-title grey-text text-darken-4">"Hardware" <i class="material-icons right">close</i></span>
+                <p style="text-align:center">
+                    Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
+                </p>
+
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+    <!--  ----------------------------------------------------------------------------------------------------------------------------                                 -->
+    <div class="col s2 m3">
+
+        <div class="card sticky-action" style="display:inline-block">
+            <div class="card-image">
+                <img class="activator" src="~/Content/ControlPanel/controlpanelBeding.jpg">
+            </div>
+            <div class="card-content">
+                <span class="card-title activator">Bedding<i class="material-icons right">more_vert</i></span>
+
+            </div>
+            <div class="card-action">
+                <p>
+                    &nbsp;  &nbsp; &nbsp; &nbsp;
+                    @Html.ActionLink("Skirts", "Index", "Fabrics")
+                    &nbsp; &nbsp;  &nbsp;&nbsp; &nbsp;  &nbsp;&nbsp; &nbsp;  
+                    @Html.ActionLink("Scarfs", "Index", "FabricCategories")
+                </p>
+
+                <p>
+                    &nbsp; &nbsp;  &nbsp; &nbsp;
+                    @Html.ActionLink("Coverlet", "Index", "FabricBooks") 
+                    &nbsp; &nbsp;  &nbsp; &nbsp; 
+                    @Html.ActionLink("Covers", "Index", "FabricRestrictions")
+                </p>
+            </div>
+
+            <div class="card-reveal" style="display:none;transform:translateY(0px);">
+                <span class="card-title grey-text text-darken-4">"Bedding"<i class="material-icons right">close</i></span>
+                <p style="text-align:center">
+                    Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <!--  ----------------------------------------------------------------------------------------------------------------------------                                 -->
+
+    <div class="col s2 m3">
+
+        <div class="card sticky-action" style="display:inline-block">
+            <div class="card-image">
+                <img class="activator" src="~/Content/ControlPanel/controlpanelCornice.jpg">
+            </div>
+            <div class="card-content">
+                <span class="card-title activator">Cornice Boxes<i class="material-icons right">more_vert</i></span>
+
+            </div>
+            <div class="card-action">
+                <p>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    @Html.ActionLink("Styles", "Index", "Fabrics")
+                </p>
+
+                <p>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    @Html.ActionLink("Restrictions", "Index", "FabricRestrictions")
+                </p>
+
+
+            </div>
+            <div class="card-reveal" style="display:none;transform:translateY(0px);">
+                <span class="card-title grey-text text-darken-4">"Cornice Boxes"<i class="material-icons right">close</i></span>
+                <p style="text-align:center">
+                    Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!--  ----------------------------------------------------------------------------------------------------------------------------                                 -->
 

@@ -36,7 +36,7 @@ namespace Baja.Web.Controllers
 
         // POST: FabricCategories/Create
         [HttpPost]
-        public ActionResult Create([Bind(Exclude = "Id")] FabricCategory fabricCategory)
+        public ActionResult Create([Bind(Include  = "Id")] FabricCategory fabricCategory)
         {
             if (ModelState.IsValid)
             {

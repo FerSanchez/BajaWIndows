@@ -33,7 +33,6 @@ namespace Baja.Web.Controllers
             }
             catch (System.Exception)
             {
-
                 throw;
             }
         }
@@ -47,7 +46,6 @@ namespace Baja.Web.Controllers
             OAuthRequestToken requestToken = service.GetRequestToken("http://localhost:55873/Home/TwitterCallback");
             Uri uri = service.GetAuthenticationUrl(requestToken);
             return Redirect(uri.ToString());
-
         }
 
         public ActionResult About()
