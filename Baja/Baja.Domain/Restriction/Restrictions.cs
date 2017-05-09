@@ -1,19 +1,21 @@
-﻿using Baja.Domain.Fabric;
+﻿using Baja.Domain.Trim;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Baja.Domain.Trim
+namespace Baja.Domain.Restriction
 {
-    public class Trim
+    public class Restrictions
     {
+        [Key]
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
-        public string ImageUrl { get; set; }
 
+
+        //Listas
         public virtual ICollection<Trim_Restrictions> Trim_Restrictions { get; set; }
     }
 }

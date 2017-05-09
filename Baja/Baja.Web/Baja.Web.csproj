@@ -44,9 +44,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Hammock, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c148cfba29ed1a4d, processorArchitecture=MSIL">
-      <HintPath>..\packages\TweetSharp-Unofficial.2.3.1.2\lib\4.0\Hammock.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -80,9 +77,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\TweetSharp-Unofficial.2.3.1.2\lib\4.0\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -136,9 +130,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="TweetSharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c148cfba29ed1a4d, processorArchitecture=MSIL">
-      <HintPath>..\packages\TweetSharp-Unofficial.2.3.1.2\lib\4.0\TweetSharp.dll</HintPath>
-    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -149,6 +140,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -202,15 +196,17 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ControlPanelController.cs" />
-    <Compile Include="Controllers\FabricBooksController.cs" />
-    <Compile Include="Controllers\FabricCategoriesController.cs" />
-    <Compile Include="Controllers\FabricRestrictionsController.cs" />
-    <Compile Include="Controllers\FabricsController.cs" />
+    <Compile Include="Controllers\ControlPanel\ControlPanelController.cs" />
+    <Compile Include="Controllers\Fabrics\FabricBooksController.cs" />
+    <Compile Include="Controllers\Fabrics\FabricCategoriesController.cs" />
+    <Compile Include="Controllers\Fabrics\FabricRestrictionsController.cs" />
+    <Compile Include="Controllers\Fabrics\FabricsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\RoleController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\Restrictions\RestrictionsController.cs" />
+    <Compile Include="Controllers\Trims\TrimsController.cs" />
+    <Compile Include="Controllers\Users\RoleController.cs" />
+    <Compile Include="Controllers\Users\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -222,7 +218,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\404\notfound.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Fabrics\default.jpg" />
@@ -243,7 +238,6 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\lib\Book.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -307,8 +301,16 @@
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Shared\_LayoutMaterialize.cshtml" />
     <Content Include="Views\ControlPanel\Index.cshtml" />
-    <Content Include="Views\FabricBooks\NotFound.cshtml" />
-    <Content Include="Views\Home\TwitterCallback.cshtml" />
+    <Content Include="Views\Restrictions\Create.cshtml" />
+    <Content Include="Views\Restrictions\Delete.cshtml" />
+    <Content Include="Views\Restrictions\Details.cshtml" />
+    <Content Include="Views\Restrictions\Edit.cshtml" />
+    <Content Include="Views\Restrictions\Index.cshtml" />
+    <Content Include="Views\Trims\Create.cshtml" />
+    <Content Include="Views\Trims\Delete.cshtml" />
+    <Content Include="Views\Trims\Details.cshtml" />
+    <Content Include="Views\Trims\Edit.cshtml" />
+    <Content Include="Views\Trims\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

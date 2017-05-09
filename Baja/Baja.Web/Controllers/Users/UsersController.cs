@@ -8,7 +8,6 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Baja.Web.Controllers
@@ -16,13 +15,29 @@ namespace Baja.Web.Controllers
     public class UsersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        
+
 
         // GET: Users
         public ActionResult Index()
         {
-            var users = db.Users;
-            return View(users.ToList());
+
+            //var users = db.Users.Include(r => r.Roles);
+            //return View(users.ToList());
+
+            var result = from user in db.Users
+                         from role in db.Roles
+                         where role.Users.Any(r => r.UserId == user.Id)
+
+                         select new UserRoleViewModel
+                         {
+                             UserName = user.UserName,
+                             Email = user.Email,
+
+                             RoleName = role.Name
+                         };
+
+            return View(result);
+
         }
 
         [HttpGet]
@@ -56,7 +71,6 @@ namespace Baja.Web.Controllers
 
             return View(user);
         }
-
 
 
         [HttpPost]
