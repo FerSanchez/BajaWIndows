@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Baja.Domain.User
+<!DOCTYPE html>
 <html>
 <head>
     <!--Import Google Icon Font-->
@@ -41,7 +42,7 @@
 
                     <ul class="right hide-on-med-and-down">
                        <li>@Html.Partial("_LoginPartial")</li> 
-                        @if (User.IsInRole("Admin"))
+                        @if (User.IsInRole(RoleNames.Administrator))
                         {
                             <li><a id="der" href="http://localhost:55873/ControlPanel/Index">Admin &nbsp;<i class="fa fa-key" aria-hidden="true"></i></a></li>
                         }
