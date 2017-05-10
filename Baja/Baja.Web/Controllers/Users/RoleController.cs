@@ -1,4 +1,5 @@
-﻿using Baja.Web.Models;
+﻿using Baja.Domain.User;
+using Baja.Web.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Linq;
 using System.Net;
@@ -34,26 +35,31 @@ namespace Baja.Web.Controllers
         }
 
         // GET: Role/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(string name)
         {
-            if (id == null)
+            if (name == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            // con manager
-            IdentityRole role = 
+
+            var role = db.Roles.Where(d => d.Name == name).FirstOrDefault();
+
+            RoleViewModel roleViewModel = new RoleViewModel();
+            roleViewModel.Id = role.Id;
+            roleViewModel.Name = role.Name;
+
             if (role == null)
             {
                 return HttpNotFound();
             }
-            return View(role);
+            return View(roleViewModel);
         }
 
         // POST: Role/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(RoleViewModel roleViewModel)
         {
-            IdentityRole role = db.Roles.Find(id);
+            var role = db.Roles.Where(d => d.Name == roleViewModel.Name).FirstOrDefault();
             db.Roles.Remove(role);
             db.SaveChanges();
             return RedirectToAction("Index");
