@@ -40,7 +40,8 @@ namespace Baja.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            IdentityRole role = db.Roles.Find(id);
+            // con manager
+            IdentityRole role = 
             if (role == null)
             {
                 return HttpNotFound();
