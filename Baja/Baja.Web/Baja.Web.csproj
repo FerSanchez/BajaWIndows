@@ -216,6 +216,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705102244413_actualizando.cs" />
+    <Compile Include="Migrations\201705102244413_actualizando.Designer.cs">
+      <DependentUpon>201705102244413_actualizando.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -233,6 +237,12 @@
     <Content Include="Content\ControlPanel\controlPanelTrims.jpg" />
     <Content Include="Content\ControlPanel\controlpanelUser.jpg" />
     <Content Include="Content\Fabrics\default.jpg" />
+    <Content Include="Content\Home\HomeBedding.jpg" />
+    <Content Include="Content\Home\HomeDraperyPanels.jpg" />
+    <Content Include="Content\Home\HomeLevel3.jpg" />
+    <Content Include="Content\Home\HomeRomanShades.jpg" />
+    <Content Include="Content\Parallax\parallaxRomanShade.jpg" />
+    <Content Include="Content\Parallax\Roller-Shade-White.jpg" />
     <Content Include="Content\Trims\default.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -342,6 +352,11 @@
       <Project>{d2171e66-699a-4406-99f7-bfc985ff5804}</Project>
       <Name>Baja.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201705102244413_actualizando.resx">
+      <DependentUpon>201705102244413_actualizando.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
