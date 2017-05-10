@@ -335,6 +335,7 @@
     <Content Include="Views\Trims\Edit.cshtml" />
     <Content Include="Views\Trims\Index.cshtml" />
     <Content Include="Views\Home\TwitterCallback.cshtml" />
+    <Content Include="Views\Role\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

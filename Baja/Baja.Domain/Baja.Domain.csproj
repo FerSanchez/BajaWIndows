@@ -150,6 +150,7 @@
     <Compile Include="Trim\Trim.cs" />
     <Compile Include="Trim\Trim_Restrictions.cs" />
     <Compile Include="User\RoleNames.cs" />
+    <Compile Include="User\RoleViewModel.cs" />
     <Compile Include="User\UserRoleViewModel.cs" />
     <Compile Include="User\UserViewModel.cs" />
   </ItemGroup>
