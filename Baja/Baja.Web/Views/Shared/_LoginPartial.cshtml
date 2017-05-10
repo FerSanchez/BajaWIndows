@@ -7,16 +7,19 @@
 
     <ul class="nav navbar-nav navbar-right">
         <li class="text-muted">
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            <a href="http://localhost:55873/Manage/Index"style="text-decoration:none; color:black;" title="Manage">Hello @User.Identity.GetUserName() ! </a>
+            @*@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
         </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()" style="text-decoration:none; color:black;" >Log off</a></li>
     </ul>
     }
 }
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li><a href="http://localhost:55873/Account/Register" style="text-decoration:none; color:black;" id="registerLink">Register</a></li>
+        <li><a href="http://localhost:55873/Account/Login" style="text-decoration:none; color:black;" id="loginLink">Log in</a></li>
+        @*<li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>*@
+        @*<li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>*@
     </ul>
 }
