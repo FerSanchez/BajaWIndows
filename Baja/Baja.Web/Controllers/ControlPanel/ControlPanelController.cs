@@ -10,6 +10,7 @@ namespace Baja.Web.Controllers
    [Authorize(Roles = RoleNames.Administrator)]
     public class ControlPanelController : Controller
     {
+        [Authorize]
         public ActionResult Index()
         {
             return View();
