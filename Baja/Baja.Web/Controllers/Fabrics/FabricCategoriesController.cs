@@ -3,6 +3,8 @@ using System.Linq;
 using System.Web.Mvc;
 using Baja.Domain;
 using Baja.Domain.Fabric;
+using PagedList;
+using System;
 
 namespace Baja.Web.Controllers
 {
@@ -10,7 +12,6 @@ namespace Baja.Web.Controllers
     {
         private BajaDbContext db = new BajaDbContext();
 
-        // GET: FabricCategories
         public ActionResult Index()
         {
             return View();
