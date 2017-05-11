@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
@@ -82,10 +81,10 @@ namespace Baja.Web.Controllers
         }
 
 
-        // GET: Fabrics/Create
+        // GET: Fabrics/Create 
         public ActionResult Create()
         {
-            ViewBag.RestrictionList = new MultiSelectList(db.FabricRestrictions, "Id", "Name");
+            //ViewBag.RestrictionList = new MultiSelectList(db.Restrictions, "Id", "Name");
             ViewBag.FabricBookId = new SelectList(db.FabricBooks, "Id", "Name");
             return View();
         }
@@ -193,7 +192,7 @@ namespace Baja.Web.Controllers
 
                 foreach (var item in db.Fabric_Restrictions)
                 {
-                    if (item.FabricId == fabric.FabricId)
+                    if (item.FabricId == fabric.FabricId)  
                     {
                         db.Entry(item).State = EntityState.Deleted;
                     }
@@ -253,5 +252,8 @@ namespace Baja.Web.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+        //Cambiar por Restrictions
     }
 }
