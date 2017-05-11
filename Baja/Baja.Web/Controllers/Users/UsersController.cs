@@ -1,4 +1,5 @@
-﻿using Baja.Domain.User;
+﻿using Baja.Domain;
+using Baja.Domain.User;
 using Baja.Web.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -12,7 +13,6 @@ namespace Baja.Web.Controllers
     public class UsersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
 
         // GET: Users
         public ActionResult Index()
@@ -60,7 +60,7 @@ namespace Baja.Web.Controllers
 
             UserViewModel user = new UserViewModel();
             user.UserId = appUser.Id;
-            user.UserName = appUser.UserName;
+            //user.UserName = appUser.UserName;
             user.Email = appUser.Email;
 
             return View(user);
@@ -77,7 +77,7 @@ namespace Baja.Web.Controllers
                 manager.UserValidator = new UserValidator<ApplicationUser>(manager);
 
                 var user = manager.FindByEmail(editUser.Email);
-                user.UserName = editUser.UserName;
+                //user.UserName = editUser.UserName;
 
                 //If Choose A Role \\
                 if(editUser.RoleName != null)
@@ -95,6 +95,49 @@ namespace Baja.Web.Controllers
 
             return View(editUser);
         }
+
+        // Delete
+        public ActionResult Delete(string email)
+        {
+            if (email == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            manager.UserValidator = new UserValidator<ApplicationUser>(manager);
+
+
+            ApplicationUser appUser = new ApplicationUser();
+            appUser = manager.FindByEmail(email);
+
+            if (appUser == null)
+                return HttpNotFound();
+
+            return View(appUser);
+        }
+
+
+        //Delete Users
+        [HttpPost]
+        public ActionResult Delete(ApplicationUser user)
+        {
+            if (user == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            manager.UserValidator = new UserValidator<ApplicationUser>(manager);
+
+            var userDelete = manager.FindByEmail(user.Email);
+            manager.Delete(userDelete);
+
+            return RedirectToAction("Index");
+        }
+
+
+
+
+        // Details
 
     }
 }
