@@ -1,9 +1,8 @@
-﻿using Baja.Domain;
-using Baja.Domain.User;
+﻿using Baja.Domain.User;
 using Baja.Web.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using System.Collections.Generic;
+using System.Collections.Generic;  
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -133,8 +132,6 @@ namespace Baja.Web.Controllers
 
             return RedirectToAction("Index");
         }
-
-
 
 
         // Details

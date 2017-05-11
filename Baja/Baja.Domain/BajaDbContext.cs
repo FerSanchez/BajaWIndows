@@ -26,7 +26,7 @@ namespace Baja.Domain
         public DbSet<Trim_Restrictions> Trim_Restrictions { get; set; }
 
 
-        /// Restrictions ///
+        /// RESTRICTIONS ///
         public DbSet<Restrictions> Restrictions { get; set; }
 
 
